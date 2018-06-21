@@ -6,7 +6,7 @@
 /*   By: fmouhtas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/21 16:29:32 by fmouhtas          #+#    #+#             */
-/*   Updated: 2018/06/21 18:13:01 by fmouhtas         ###   ########.fr       */
+/*   Updated: 2018/06/21 18:26:26 by fmouhtas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,28 @@
 
 int			main(void)
 {
-	t_map	map;
-	t_piece	piece;
+	t_map	*map;
+	t_piece	*piece;
 	char	*line;
 
-	map.grid = NULL;
-	piece.block = NULL;
+	map = malloc(sizeof(t_map));
+	piece = malloc(sizeof(t_piece));
+	map->grid = NULL;
+	piece->block = NULL;
 	if (get_next_line(0, &line) != 1)
 		return (0);
-	map.pl = line[10] == '1' ? '0' : 'X';
+	map->pl = line[10] == '1' ? '0' : 'X';
 	free(line);
 	while (1)
 	{
 		dprintf(2, "GET MAP\n");
-		if (!get_map(&map))
+		if (!get_map(map))
 			return (0);
 		dprintf(2, "GET PIECE\n");
-		if (!get_piece(&piece))
+		if (!get_piece(piece))
 			return (0);
 		dprintf(2, "PUT PIECE\n");
-		if (!put_piece(&map, &piece))
+		if (!put_piece(map, piece))
 			return (0);
 	}
 	return (0);

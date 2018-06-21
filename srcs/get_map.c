@@ -6,7 +6,7 @@
 /*   By: fmouhtas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/21 16:35:25 by fmouhtas          #+#    #+#             */
-/*   Updated: 2018/06/21 18:05:55 by fmouhtas         ###   ########.fr       */
+/*   Updated: 2018/06/21 18:31:45 by fmouhtas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ static int	create_map(t_map *map)
 	get_next_line(0, &line);
 	i = 8;
 	map->height = ft_atoi(line + i);
-	while (line[i++] != ' ');
+	while (line[i] != ' ')
+		i++;
 	map->width = ft_atoi(line + i);
 	free(line);
 	if (!(map->grid = (char **)malloc(sizeof(char *) * map->height)))
