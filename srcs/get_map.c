@@ -6,7 +6,7 @@
 /*   By: fmouhtas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/21 16:35:25 by fmouhtas          #+#    #+#             */
-/*   Updated: 2018/06/21 18:31:45 by fmouhtas         ###   ########.fr       */
+/*   Updated: 2018/06/25 12:00:58 by fmouhtas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ static int	copy_map(t_map *map)
 	while (i < map->height)
 	{
 		get_next_line(0, &line);
+	//	dprintf(2, "line: |%s|\n", line);
 		j = 0;
 		while (j < map->width)
 		{
@@ -65,7 +66,10 @@ int			get_map(t_map *map)
 			return (0);
 	}
 	else
+	{
 		skip_line(2);
+		//dprintf(2, "lines skiped\n");
+	}
 	copy_map(map);
 	return (1);
 }

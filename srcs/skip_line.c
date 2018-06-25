@@ -6,7 +6,7 @@
 /*   By: fmouhtas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/21 16:46:10 by fmouhtas          #+#    #+#             */
-/*   Updated: 2018/06/21 18:29:24 by fmouhtas         ###   ########.fr       */
+/*   Updated: 2018/06/25 12:04:41 by fmouhtas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ int			skip_line(int n)
 	{
 		if (get_next_line(0, &line) != 1)
 			return (0);
-		free(line);
+		if (line)
+			free(line);
 		n--;
 	}
 	return (1);
