@@ -6,7 +6,7 @@
 /*   By: fmouhtas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/21 16:35:25 by fmouhtas          #+#    #+#             */
-/*   Updated: 2018/06/25 12:32:15 by fmouhtas         ###   ########.fr       */
+/*   Updated: 2018/06/25 12:51:02 by fmouhtas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ static int	create_map(t_map *map)
 	char	*line;
 	int		i;
 
-	get_next_line(0, &line);
+	if (get_next_line(0, &line) != 1)
+		return (0);
 	i = 8;
 	map->height = ft_atoi(line + i);
 	while (line[i] != ' ')
@@ -30,7 +31,8 @@ static int	create_map(t_map *map)
 	while (i < map->height)
 		if (!(map->grid[i++] = (char *)malloc(sizeof(char) * map->width + 1)))
 			return (0);
-	skip_line(1);
+	if (!skip_line(1))
+		return (0);
 	return (1);
 }
 
@@ -43,7 +45,8 @@ static int	copy_map(t_map *map)
 	i = 0;
 	while (i < map->height)
 	{
-		get_next_line(0, &line);
+		if (get_next_line(0, &line) != 1)
+			return (0);
 	//	dprintf(2, "line: |%s|\n", line);
 		j = 0;
 		while (j < map->width)
@@ -70,10 +73,12 @@ int			get_map(t_map *map)
 	else
 	{
 		dprintf(2, "une seconde fois donc skip les lignes avant de copier la map\n");
-		skip_line(2);
+		if (!skip_line(2))
+			return (0);
 		//dprintf(2, "lines skiped\n");
 	}
 	dprintf(2, "copie de la map\n");
-	copy_map(map);
+	if (!copy_map(map))
+		return (0);
 	return (1);
 }

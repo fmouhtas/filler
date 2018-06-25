@@ -6,7 +6,7 @@
 /*   By: fmouhtas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/21 16:29:32 by fmouhtas          #+#    #+#             */
-/*   Updated: 2018/06/25 12:24:53 by fmouhtas         ###   ########.fr       */
+/*   Updated: 2018/06/25 12:42:35 by fmouhtas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int			main(void)
 	piece.block = NULL;
 	if (get_next_line(0, &line) != 1)
 		return (0);
-	map.pl = line[10] == '1' ? '0' : 'X';
+	map.pl = line[10] == '1' ? 'O' : 'X';
 	free(line);
 	while (1)
 	{
