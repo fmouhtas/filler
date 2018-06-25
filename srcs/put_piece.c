@@ -6,7 +6,7 @@
 /*   By: fmouhtas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/21 17:09:41 by fmouhtas          #+#    #+#             */
-/*   Updated: 2018/06/25 11:26:01 by fmouhtas         ###   ########.fr       */
+/*   Updated: 2018/06/25 12:30:12 by fmouhtas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ int			put_piece(t_map *map, t_piece *piece)
 			if (can_fit(map, piece))
 			{
 				//printf("%d %d\n", piece->y, piece->x);
-				//printf("%d %d\n", piece->y, piece->x);
-
+				dprintf(2, "CAN FIT : pos = %d %d\n", piece->y, piece->x);
+				printf("%d %d\n", piece->y, piece->x);
 				return (1);
 			}
 			piece->x++;

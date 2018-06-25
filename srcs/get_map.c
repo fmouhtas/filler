@@ -6,7 +6,7 @@
 /*   By: fmouhtas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/21 16:35:25 by fmouhtas          #+#    #+#             */
-/*   Updated: 2018/06/25 12:00:58 by fmouhtas         ###   ########.fr       */
+/*   Updated: 2018/06/25 12:32:15 by fmouhtas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,16 +60,20 @@ static int	copy_map(t_map *map)
 
 int			get_map(t_map *map)
 {
+	dprintf(2, "RENTRE DANS GET MAP: ");
 	if (map->grid == NULL)
 	{
+		dprintf(2, "une premiere fois donc malloc la map\n");
 		if (!create_map(map))
 			return (0);
 	}
 	else
 	{
+		dprintf(2, "une seconde fois donc skip les lignes avant de copier la map\n");
 		skip_line(2);
 		//dprintf(2, "lines skiped\n");
 	}
+	dprintf(2, "copie de la map\n");
 	copy_map(map);
 	return (1);
 }

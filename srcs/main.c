@@ -6,7 +6,7 @@
 /*   By: fmouhtas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/21 16:29:32 by fmouhtas          #+#    #+#             */
-/*   Updated: 2018/06/25 12:15:20 by fmouhtas         ###   ########.fr       */
+/*   Updated: 2018/06/25 12:24:53 by fmouhtas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int			main(void)
 			return (0);
 		if (!put_piece(&map, &piece))
 			return (0);
-		else
-			printf("%d %d\n", piece.y, piece.x);
+		//else
+			//printf("%d %d\n", piece.y, piece.x);
 	}
 	return (0);
 }
