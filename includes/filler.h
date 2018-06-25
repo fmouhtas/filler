@@ -6,7 +6,7 @@
 /*   By: fmouhtas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/21 16:24:32 by fmouhtas          #+#    #+#             */
-/*   Updated: 2018/06/21 17:08:50 by fmouhtas         ###   ########.fr       */
+/*   Updated: 2018/06/25 16:26:06 by fmouhtas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ typedef struct	s_piece
 {
 	int			height;
 	int			width;
+	int			r_height;
+	int			r_width;
 	int			x;
 	int			y;
 	char		**block;
@@ -29,6 +31,7 @@ typedef struct	s_piece
 typedef struct	s_map
 {
 	char		pl;
+	char		en;
 	int			height;
 	int			width;
 	char		**grid;
