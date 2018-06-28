@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdel.c                                        :+:      :+:    :+:   */
+/*   key_press.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fmouhtas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/16 12:53:09 by fmouhtas          #+#    #+#             */
-/*   Updated: 2017/11/16 13:55:46 by fmouhtas         ###   ########.fr       */
+/*   Created: 2018/06/28 14:40:44 by fmouhtas          #+#    #+#             */
+/*   Updated: 2018/06/28 15:25:10 by fmouhtas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "visu.h"
 
-void	ft_strdel(char **as)
+int			key_press(int key, t_env *env)
 {
-	if (as != NULL)
-	{
-		free(*as);
-		*as = NULL;
-	}
+	if (key == 53)
+		exit(0);
+	else if (key == 49)
+		env->play = env->play == 1 ? 0: 1;
+//	printf("key = %d\n", key);
+	return (0);
 }
