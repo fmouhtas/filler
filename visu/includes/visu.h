@@ -6,7 +6,7 @@
 /*   By: fmouhtas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/25 17:30:24 by fmouhtas          #+#    #+#             */
-/*   Updated: 2018/06/28 16:48:54 by fmouhtas         ###   ########.fr       */
+/*   Updated: 2018/07/09 18:03:49 by fmouhtas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define VISU_H
 
 # include "../minilibx_macos/mlx.h"
-# include "../libft/libft.h"
+# include "../../libft/libft.h"
 # include <stdio.h>
 
 # define ZOOM	12

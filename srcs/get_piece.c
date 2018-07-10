@@ -6,7 +6,7 @@
 /*   By: fmouhtas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/21 16:54:23 by fmouhtas          #+#    #+#             */
-/*   Updated: 2018/06/25 16:26:08 by fmouhtas         ###   ########.fr       */
+/*   Updated: 2018/07/10 11:08:50 by fmouhtas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static void	free_block(t_piece *piece)
 	if (piece->block != NULL)
 	{
 		i = 0;
-		while (i < piece->r_height)
+		while (i < piece->height)
 			free(piece->block[i++]);
 		free(piece->block);
 	}
@@ -37,7 +37,6 @@ static char	**get_block(int height, int width)
 	i = 0;
 	while (i < height)
 	{
-	//	dprintf(2, "malloc de grid[%d][%d]\n", i, j);
 		if (!(block[i] = (char *)malloc(sizeof(char) * (width + 1))))
 			return (NULL);
 		if (get_next_line(0, &line) != 1)
@@ -54,33 +53,38 @@ static char	**get_block(int height, int width)
 	}
 	return (block);
 }
-/*
-static void	trim_values(t_piece *piece)
-{
-	int		i;
-	int		j;
 
-	piece->height = 0;
-	piece->width = 0;
-	i = piece->r_height - 1;
-	while (i > 0)
+static void	get_bounds(t_piece *piece)
+{
+	int		x;
+	int		y;
+
+	piece->up = piece->height;
+	piece->left = piece->width;
+	piece->right = 0;
+	piece->bottom = 0;
+	y = 0;
+	while (y < piece->height)
 	{
-		j = piece->r_width - 1;
-		while (j > 0)
+		x = 0;
+		while (x < piece->width)
 		{
-			if (piece->block[i][j] == '*')
+			if (piece->block[y][x] == '*')
 			{
-				if (j > piece->width)
-					piece->width = j;
-				if (i > piece->height)
-					piece->height = i;
+				if (y < piece->up)
+					piece->up = y;
+				if (x < piece->left)
+					piece->left = x;
+				if (y > piece->bottom)
+					piece->bottom = y;
+				if (x > piece->right)
+					piece->right = x;
 			}
-			j--;
+			x++;
 		}
-		i--;
+		y++;
 	}
-//	dprintf(2, "r_height = %d || r_width = %d\nheight = %d || width = %d\n", piece->r_height, piece->r_width, piece->height, piece->width);
-}*/
+}
 
 int			get_piece(t_piece *piece)
 {
@@ -96,6 +100,6 @@ int			get_piece(t_piece *piece)
 	free(line);
 	if (!(piece->block = get_block(piece->height, piece->width)))
 		return (0);
-//	trim_values(piece);
+	get_bounds(piece);
 	return (1);
 }

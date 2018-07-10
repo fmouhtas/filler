@@ -6,7 +6,7 @@
 /*   By: fmouhtas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/21 16:29:32 by fmouhtas          #+#    #+#             */
-/*   Updated: 2018/06/28 12:43:54 by fmouhtas         ###   ########.fr       */
+/*   Updated: 2018/07/10 10:25:12 by fmouhtas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ int			main(void)
 		}
 		else
 		{
-			ft_putnbr(piece.y);
+			ft_putnbr(piece.pos.y);
 			ft_putchar(' ');
-			ft_putnbr(piece.x);
+			ft_putnbr(piece.pos.x);
 			ft_putchar('\n');
 		}
 	}

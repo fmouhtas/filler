@@ -6,7 +6,7 @@
 /*   By: fmouhtas <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/06/21 16:24:32 by fmouhtas          #+#    #+#             */
-/*   Updated: 2018/06/25 16:26:06 by fmouhtas         ###   ########.fr       */
+/*   Updated: 2018/07/10 11:08:54 by fmouhtas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,23 @@
 
 # include <stdio.h>
 
+typedef struct	s_pos
+{
+	int			x;
+	int			y;
+}				t_pos;
+
 typedef struct	s_piece
 {
 	int			height;
 	int			width;
-	int			r_height;
-	int			r_width;
-	int			x;
-	int			y;
+	t_pos		pos;
+	int			up;
+	int			left;
+	int			right;
+	int			bottom;
+	t_pos		start;
+	t_pos		end;
 	char		**block;
 }				t_piece;
 
@@ -35,6 +44,7 @@ typedef struct	s_map
 	int			height;
 	int			width;
 	char		**grid;
+	t_piece		*traget;
 }				t_map;
 
 int				get_map(t_map *map);

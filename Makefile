@@ -6,7 +6,7 @@
 #    By: fmouhtas <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/06/05 16:09:06 by fmouhtas          #+#    #+#              #
-#    Updated: 2018/06/28 14:34:12 by fmouhtas         ###   ########.fr        #
+#    Updated: 2018/07/09 18:08:36 by fmouhtas         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,13 +26,13 @@ SRCS_PATH = $(addprefix srcs/, $(SRCS))
 
 OBJ = $(SRCS_PATH:.c=.o)
 
-all: others
+all: visu
 
-others: $(NAME)
-	make -C ./libft/
+visu: $(NAME)
 	make -C ./visu/
 
 $(NAME): $(OBJ)
+	make -C ./libft/
 	gcc $(FLAGS) $^ $(LFT) -I ./includes/ -o $@
 
 %.o: %.c ./includes/filler.h 
